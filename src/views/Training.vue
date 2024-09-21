@@ -1,27 +1,43 @@
 <template>
 
-  /* From Uiverse.io by Javierrocadev */ 
-  <div class="relative group duration-500 cursor-pointer group overflow-hidden relative text-gray-50 h-72 w-56  rounded-2xl hover:duration-700 duration-700">
-    <div class="w-56 h-72 bg-lime-400 text-gray-800">
-      <div class="flex flex-row justify-between">
-      <svg class="fill-current stroke-current w-8 h-8 p-2 hover:bg-lime-200  rounded-full m-1" height="100" preserveAspectRatio="xMidYMid meet" viewBox="0 0 100 100" width="100" x="0" xmlns="http://www.w3.org/2000/svg" y="0">
-    <path class="" d="M15.8,32.9V15.8m0,0H32.9m-17.1,0L37.2,37.2m47-4.3V15.8m0,0H67.1m17.1,0L62.8,37.2m-47,29.9V84.2m0,0H32.9m-17.1,0L37.2,62.8m47,21.4L62.8,62.8M84.2,84.2V67.1m0,17.1H67.1" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="8">
-    </path>
-    </svg>
-    <svg class="fill-current stroke-current w-8 h-8 p-2 m-1 hover:bg-lime-200 rounded-full" height="100" preserveAspectRatio="xMidYMid meet" viewBox="0 0 100 100" width="100" x="0" xmlns="http://www.w3.org/2000/svg" y="0">
-    <path class="svg-stroke-primary" d="M50,17.4h0M50,50h0m0,32.6h0M50,22a4.7,4.7,0,1,1,4.7-4.6A4.7,4.7,0,0,1,50,22Zm0,32.7A4.7,4.7,0,1,1,54.7,50,4.7,4.7,0,0,1,50,54.7Zm0,32.6a4.7,4.7,0,1,1,4.7-4.7A4.7,4.7,0,0,1,50,87.3Z" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="8">
-    </path>
-    </svg>
+  /* From Uiverse.io by 3bdel3ziz-T */ 
+  <div
+    class="group select-none w-[250px] flex flex-col p-4 relative items-center justify-center bg-gray-800 border border-gray-800 shadow-lg rounded-2xl"
+  >
+    <div class="">
+      <div class="text-center p-3 flex-auto justify-center">
+        <svg
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          class="group-hover:animate-bounce w-12 h-12 flex items-center text-gray-600 fill-red-500 mx-auto"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+            fill-rule="evenodd"
+          ></path>
+        </svg>
+        <h2 class="text-xl font-bold py-4 text-gray-200">Are you sure?</h2>
+        <p class="font-bold text-sm text-gray-500 px-2">
+          Do you really want to continue ? This process cannot be undone
+        </p>
+      </div>
+      <div class="p-2 mt-2 text-center space-x-1 md:block">
+        <button
+          class="mb-2 md:mb-0 bg-gray-700 px-5 py-2 text-sm shadow-sm font-medium tracking-wider border-2 border-gray-600 hover:border-gray-700 text-gray-300 rounded-full hover:shadow-lg hover:bg-gray-800 transition ease-in duration-300"
+        >
+          Cancel
+        </button>
+        <button
+          class="bg-red-500 hover:bg-transparent px-5 ml-4 py-2 text-sm shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-red-500 hover:border-red-500 text-white hover:text-red-500 rounded-full transition ease-in duration-300"
+        >
+          Confirm
+        </button>
       </div>
     </div>
-    <div class="absolute bg-gray-50 -bottom-24 w-56 p-3 flex flex-col gap-1 group-hover:-bottom-0 group-hover:duration-600 duration-500">
-      <span class="text-lime-400 font-bold text-xs">TAILWIND</span>
-      <span class="text-gray-800 font-bold text-3xl">Cheat Sheet</span>
-      <p class="text-neutral-800">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </div>
-    
-  
   </div>
+  
 
 
 
