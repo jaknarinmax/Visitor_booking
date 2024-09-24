@@ -326,6 +326,8 @@
                                 <p class="text-gray-900 whitespace-no-wrap">{{ formatDateTime(booking.bookedAt) }}</p>
                                 </td>
                                 <td class="px-1 py-3 border-b border-gray-200 bg-white text-sm">
+
+                                <div class="relative inline-block ">                                 
                                 <a href="#" class="text-gray-400 hover:text-gray-100 ml-2" style="display: inline-block" @click.prevent="toggleTableparticipants(booking)">
                                     <i class="material-icons-round text-base">
                                     <svg class="h-6 w-6 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -334,7 +336,13 @@
                                     </svg>
                                     </i>
                                 </a>
+                                <div class="tooltip" role="tooltip">
+                                    View participants
+                                    <div class="tooltip-arrow"></div>
+                                </div>
+                                </div>
         
+                                <div class="relative inline-block ">
                                 <a href="#" @click.prevent="startEditingBooking(booking)" class="text-gray-400 hover:text-gray-100 ml-2" style="display: inline-block">
                                     <i class="material-icons-round text-base">
                                     <svg class="h-6 w-6 text-violet-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -343,7 +351,14 @@
                                     </svg>
                                     </i>
                                 </a>
-        
+                                <div class="tooltip" role="tooltip">
+                                    Edit booking
+                                    <div class="tooltip-arrow"></div>
+                                </div>
+                                </div>
+
+
+                                <div class="relative inline-block ">
                                 <a href="#" @click.prevent="confirmDeleteBooking(booking._id)" class="text-gray-400 hover:text-gray-100 ml-2" style="display: inline-block">
                                     <i class="material-icons-round text-base">
                                     <svg class="h-6 w-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -351,7 +366,13 @@
                                     </svg>
                                     </i>
                                 </a>
+                                <div class="tooltip" role="tooltip">
+                                    Delete booking
+                                    <div class="tooltip-arrow"></div>
+                                </div>
+                                </div>
         
+                                <div class="relative inline-block ">
                                 <a href="#" @click.prevent="Approveticket(booking._id)" class="text-gray-400 hover:text-gray-100 ml-2" style="display: inline-block">
                                     <i class="material-icons-round text-base">
                                     <svg class="h-6 w-6 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -361,7 +382,12 @@
                                     </svg>
                                     </i>
                                 </a>
-                                
+                                <div class="tooltip" role="tooltip">
+                                    Approve booking
+                                    <div class="tooltip-arrow"></div>
+                                </div>
+                                </div>
+
                                 </td>
                             </tr>
                             <tr v-if="booking.showParticipants">
@@ -464,11 +490,6 @@
                     </div>
                     </div>
                 </div>
-        
-        
-        
-        
-        
         
                 <div v-if="approvedticketssuccessful" class="ticket-container py-8 " style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
                     <div class="bg-blue-200" v-for="booking in bookingssucceed" :key="booking._id"   style="flex-basis: calc(33.333% - 30px); margin-top: 0px; border-radius: 20px; padding: 40px;">
@@ -670,8 +691,7 @@
                             <span class="mx-2">To</span>
                             <input v-model="endDatesucceed" type="date" class="date-input"
                                 style="border: 1.5px solid #D3D3D3; padding: 5px;">&nbsp;&nbsp;
-                            <a @click="applyFilterssucceed"
-                                class="h-min items-center disabled:opacity-50 disabled:hover:opacity-50 hover:opacity-95 justify-center ring-none rounded-lg shadow-lg font-semibold py-1 px-6 font-dm focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-sky-500 border-b-sky-800 disabled:border-0 disabled:bg-sky-500 disabled:text-white ring-white text-white border-b-4 hover:border-0 active:border-0 hover:text-gray-100 active:bg-sky-800 active:text-gray-300 focus-visible:outline-violet-500 text-sm sm:text-base dark:bg-gray-700 dark:border-gray-700 dark:border-b-gray-900">
+                            <a @click="applyFilterssucceed" class="h-min items-center disabled:opacity-50 disabled:hover:opacity-50 hover:opacity-95 justify-center ring-none rounded-lg shadow-lg font-semibold py-1 px-6 font-dm focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-sky-500 border-b-sky-800 disabled:border-0 disabled:bg-sky-500 disabled:text-white ring-white text-white border-b-4 hover:border-0 active:border-0 hover:text-gray-100 active:bg-sky-800 active:text-gray-300 focus-visible:outline-violet-500 text-sm sm:text-base dark:bg-gray-700 dark:border-gray-700 dark:border-b-gray-900">
                                 Search
                             </a>
                         </div>
@@ -723,6 +743,8 @@
                                                 </p>
                                             </td>
                                             <td class="px-1 py-3 border-b border-gray-200 bg-white text-sm">
+
+                                                <div class="relative inline-block ">                                 
                                                 <a class="text-gray-400 hover:text-gray-100 ml-2" style="display: inline-block" @click.prevent="toggleSuccessfullyTicket(booking._id)">
                                                     <i class="material-icons-round text-base">
                                                         <svg class="h-7 w-7 text-blue-500" viewBox="0 0 24 24" fill="none"
@@ -733,9 +755,15 @@
                                                         </svg>
                                                     </i>
                                                 </a>
-            
-                                                <a @click.prevent="toggledeletesuccessfullyTicket(booking)"
-                                                class="text-gray-400 hover:text-gray-100 ml-2" style="display: inline-block">
+                                                <div class="tooltip" role="tooltip">
+                                                    View participants
+                                                    <div class="tooltip-arrow"></div>
+                                                </div>
+                                                </div>
+
+                                                
+                                                <div class="relative inline-block ">
+                                                <a @click.prevent="toggledeletesuccessfullyTicket(booking)" class="text-gray-400 hover:text-gray-100 ml-2" style="display: inline-block">
                                                     <i class="material-icons-round text-base">
                                                         <svg class="h-7 w-7 text-red-500" fill="none" viewBox="0 0 24 24"
                                                             stroke="currentColor">
@@ -744,7 +772,13 @@
                                                         </svg>
                                                     </i>
                                                 </a>
-            
+                                                <div class="tooltip" role="tooltip">
+                                                    Delete booking
+                                                    <div class="tooltip-arrow"></div>
+                                                </div>
+                                                </div>
+
+                                                <div class="relative inline-block mr-1">
                                                 <a @click="showApproveModal(booking._id)" class="text-gray-400 hover:text-gray-100 ml-2" style="display: inline-block">
                                                     <i class="material-icons-round text-base">
                                                         <svg class="h-7 w-7 text-fuchsia-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -753,7 +787,13 @@
                                                         </svg>
                                                     </i>
                                                 </a>
-                        
+                                                <div class="tooltip" role="tooltip">
+                                                    Approve Ticket
+                                                    <div class="tooltip-arrow"></div>
+                                                </div>
+                                                </div>
+
+                                                <div class="relative inline-block mr-1">
                                                 <a @click.stop="openRejectModal(booking)" class="text-gray-400 hover:text-gray-100 ml-2" style="display: inline-block">
                                                     <i class="material-icons-round text-base">
                                                         <svg class="h-7 w-7 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -761,6 +801,11 @@
                                                         </svg>
                                                     </i>
                                                 </a>
+                                                <div class="tooltip" role="tooltip">
+                                                    Reject Ticket
+                                                    <div class="tooltip-arrow"></div>
+                                                </div>
+                                                </div>
 
                                             </td>
                                         </tr>
@@ -2372,4 +2417,36 @@ import AdminSalesTopNav from './AdminTopNav.vue';
 }
 
 
+.tooltip {
+    visibility: hidden;
+    position: absolute;
+    z-index: 9999;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem;
+    background-color: #111827;
+    color: white;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 10ms linear, visibility 0ms;
+    pointer-events: none;
+  }
+  
+  .relative:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .tooltip-arrow {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: #111827 transparent transparent transparent;
+  }
 </style>

@@ -19,6 +19,15 @@ const messages = {
             unable: 'Unable to continue!!!',
             saleschannels: 'saleschannels',
             callcenter: 'CALL CENTER',
+            Selectdepartment: 'Select sales department',
+            departmentname:'Department Name',
+            numberofSales:'Number of Sales in the Department',
+            selectd:'Select department',
+            members: 'Members',
+            information: 'Sales Information',
+            
+
+
         },
         
         stepdata: {
@@ -168,6 +177,13 @@ const messages = {
             unable: 'ไม่สามารถดำเนินการต่อได้!!!',
             saleschannels: 'ช่องทางการขาย',
             callcenter: 'ศูนย์บริการ',
+            Selectdepartment: 'เลือกแผนกเซลล์',
+            departmentname:'ชื่อแผนก',
+            numberofSales:'จำนวนเซลล์ในแผนก',
+            selectd:'เลือกเเผนก',
+            members: 'สมาชิก',
+            information: 'ข้อมูลเซลล์',
+
 
 
         },

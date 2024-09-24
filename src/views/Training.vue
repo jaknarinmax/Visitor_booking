@@ -1,89 +1,106 @@
 <template>
-
-  /* From Uiverse.io by Ykingdev */ 
-  <div
-    class="flex flex-col gap-2 dark:text-white max-w-md w-full bg-white dark:bg-neutral-900 p-5 rounded-md mt-8 shadow-md hover:scale-105 hover:duration-150 duration-150"
-  >
-    <div class="flex flex-row justify-between w-full">
-      <div class="flex flex-row justify-between w-full">
-        <p class="text-xs">John Doe</p>
-        <p class="text-xs">June 1, 2000</p>
+    <div class="flex items-center">
+      <!-- View participants button -->
+      <div class="relative inline-block mr-2">
+        <a href="#" class="text-gray-400 hover:text-gray-100" @click.prevent="toggleTableparticipants(booking)" data-tooltip-target="tooltip-view">
+          <i class="material-icons-round text-base">
+            <svg class="h-6 w-6 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+          </i>
+        </a>
+        <div class="tooltip" role="tooltip">
+          View participants
+          <div class="tooltip-arrow"></div>
+        </div>
       </div>
-    </div>
-    <div class="flex flex-row justify-between w-full">
-      <h3 class="text-xl font-bold">Great Experience!</h3>
   
-      <div class="text-xs">
-        <div class="flex flex-row">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-4 w-4 text-yellow-400"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              d="M9.049 2.927c.3-.916 1.603-.916 1.902 0l1.286 3.953a1.5 1.5 0 001.421 1.033h4.171c.949 0 1.341 1.154.577 1.715l-3.38 2.458a1.5 1.5 0 00-.54 1.659l1.286 3.953c.3.916-.757 1.67-1.539 1.145l-3.38-2.458a1.5 1.5 0 00-1.76 0l-3.38 2.458c-.782.525-1.838-.229-1.539-1.145l1.286-3.953a1.5 1.5 0 00-.54-1.659l-3.38-2.458c-.764-.561-.372-1.715.577-1.715h4.171a1.5 1.5 0 001.421-1.033l1.286-3.953z"
-            ></path>
-          </svg>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-4 w-4 text-yellow-400"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              d="M9.049 2.927c.3-.916 1.603-.916 1.902 0l1.286 3.953a1.5 1.5 0 001.421 1.033h4.171c.949 0 1.341 1.154.577 1.715l-3.38 2.458a1.5 1.5 0 00-.54 1.659l1.286 3.953c.3.916-.757 1.67-1.539 1.145l-3.38-2.458a1.5 1.5 0 00-1.76 0l-3.38 2.458c-.782.525-1.838-.229-1.539-1.145l1.286-3.953a1.5 1.5 0 00-.54-1.659l-3.38-2.458c-.764-.561-.372-1.715.577-1.715h4.171a1.5 1.5 0 001.421-1.033l1.286-3.953z"
-            ></path>
-          </svg>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-4 w-4 text-yellow-400"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              d="M9.049 2.927c.3-.916 1.603-.916 1.902 0l1.286 3.953a1.5 1.5 0 001.421 1.033h4.171c.949 0 1.341 1.154.577 1.715l-3.38 2.458a1.5 1.5 0 00-.54 1.659l1.286 3.953c.3.916-.757 1.67-1.539 1.145l-3.38-2.458a1.5 1.5 0 00-1.76 0l-3.38 2.458c-.782.525-1.838-.229-1.539-1.145l1.286-3.953a1.5 1.5 0 00-.54-1.659l-3.38-2.458c-.764-.561-.372-1.715.577-1.715h4.171a1.5 1.5 0 001.421-1.033l1.286-3.953z"
-            ></path>
-          </svg>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-4 w-4 text-yellow-400"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              d="M9.049 2.927c.3-.916 1.603-.916 1.902 0l1.286 3.953a1.5 1.5 0 001.421 1.033h4.171c.949 0 1.341 1.154.577 1.715l-3.38 2.458a1.5 1.5 0 00-.54 1.659l1.286 3.953c.3.916-.757 1.67-1.539 1.145l-3.38-2.458a1.5 1.5 0 00-1.76 0l-3.38 2.458c-.782.525-1.838-.229-1.539-1.145l1.286-3.953a1.5 1.5 0 00-.54-1.659l-3.38-2.458c-.764-.561-.372-1.715.577-1.715h4.171a1.5 1.5 0 001.421-1.033l1.286-3.953z"
-            ></path>
-          </svg>
+      <!-- Edit button -->
+      <div class="relative inline-block mr-2">
+        <a href="#" @click.prevent="startEditingBookingandparticipants(booking._id)" class="text-gray-400 hover:text-gray-100">
+          <i class="material-icons-round text-base">
+            <svg class="h-6 w-6 text-violet-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+            </svg>
+          </i>
+        </a>
+        <div class="tooltip" role="tooltip">
+          Edit booking
+          <div class="tooltip-arrow"></div>
+        </div>
+      </div>
   
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-4 w-4 text-yellow-200"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              d="M9.049 2.927c.3-.916 1.603-.916 1.902 0l1.286 3.953a1.5 1.5 0 001.421 1.033h4.171c.949 0 1.341 1.154.577 1.715l-3.38 2.458a1.5 1.5 0 00-.54 1.659l1.286 3.953c.3.916-.757 1.67-1.539 1.145l-3.38-2.458a1.5 1.5 0 00-1.76 0l-3.38 2.458c-.782.525-1.838-.229-1.539-1.145l1.286-3.953a1.5 1.5 0 00-.54-1.659l-3.38-2.458c-.764-.561-.372-1.715.577-1.715h4.171a1.5 1.5 0 001.421-1.033l1.286-3.953z"
-            ></path>
-          </svg>
+      <!-- Reject button -->
+      <div class="relative inline-block mr-2">
+        <a href="#" @click.prevent="openRejectBookingSalesModal(booking)" class="text-gray-400 hover:text-gray-100">
+          <i class="material-icons-round text-base">
+            <svg class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path d="M9 9L15 15M15 9L9 15M7.8 21H16.2C17.8802 21 18.7202 21 19.362 20.673C19.9265 20.3854 20.3854 19.9265 20.673 19.362C21 18.7202 21 17.8802 21 16.2V7.8C21 6.11984 21 5.27976 20.673 4.63803C20.3854 4.07354 19.9265 3.6146 19.362 3.32698C18.7202 3 17.8802 3 16.2 3H7.8C6.11984 3 5.27976 3 4.63803 3.32698C4.07354 3.6146 3.6146 4.07354 3.32698 4.63803C3 5.27976 3 6.11984 3 7.8V16.2C3 17.8802 3 18.7202 3.32698 19.362C3.6146 19.9265 4.07354 20.3854 4.63803 20.673C5.27976 21 6.11984 21 7.8 21Z"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </i>
+        </a>
+        <div class="tooltip" role="tooltip">
+          Reject booking
+          <div class="tooltip-arrow"></div>
+        </div>
+      </div>
+  
+      <!-- Approve button -->
+      <div class="relative inline-block">
+        <a href="#" @click.prevent="Approveticket(booking._id)" class="text-gray-400 hover:text-gray-100">
+          <i class="material-icons-round text-base">
+            <svg class="h-6 w-6 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+          </i>
+        </a>
+        <div class="tooltip" role="tooltip">
+          Approve ticket
+          <div class="tooltip-arrow"></div>
         </div>
       </div>
     </div>
+  </template>
   
-    <div class="text-sm">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia
-      odio vitae vestibulum. Donec in efficitur ipsum, sed dapibus eros.
-    </div>
-  </div>
+  <style scoped>
+
   
+  .tooltip {
+    visibility: hidden;
+    position: absolute;
+    z-index: 9999; /* เพิ่มค่า z-index ให้สูงขึ้น */
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem;
+    background-color: #111827;
+    color: white;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 10ms linear, visibility 0ms;
+    pointer-events: none;
+  }
+  
+  .relative:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .tooltip-arrow {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: #111827 transparent transparent transparent;
+  }
 
 
-
-</template>
-
-
-<script>
-
-</script>
-
-<style scoped></style>
+  </style>

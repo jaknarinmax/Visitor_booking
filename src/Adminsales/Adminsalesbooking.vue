@@ -370,6 +370,8 @@
                         <p class="text-gray-900 whitespace-no-wrap">{{ formatDateTime(booking.bookedAt) }}</p>
                       </td>
                       <td class="px-1 py-3 border-b border-gray-200 bg-white text-sm">
+
+                        <div class="relative inline-block mr-1">
                         <a href="#" class="text-gray-400 hover:text-gray-100 ml-2" style="display: inline-block" @click.prevent="toggleTableparticipants(booking)">
                           <i class="material-icons-round text-base">
                             <svg class="h-6 w-6 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -378,7 +380,13 @@
                             </svg>
                           </i>
                         </a>
+                        <div class="tooltip" role="tooltip">
+                          View participants
+                          <div class="tooltip-arrow"></div>
+                        </div>
+                      </div>
 
+                      <div class="relative inline-block mr-1">
                         <a href="#" @click.prevent="startEditingBookingandparticipants(booking._id)" class="text-gray-400 hover:text-gray-100 ml-2" style="display: inline-block">
                           <i class="material-icons-round text-base">
                             <svg class="h-6 w-6 text-violet-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -387,7 +395,13 @@
                             </svg>
                           </i>
                         </a>
+                        <div class="tooltip" role="tooltip">
+                          Edit booking
+                          <div class="tooltip-arrow"></div>
+                        </div>
+                      </div>
 
+                      <div class="relative inline-block mr-1">
                         <a href="#" @click.prevent="Approveticket(booking._id)" class="text-gray-400 hover:text-gray-100 ml-2" style="display: inline-block">
                           <i class="material-icons-round text-base">
                             <svg class="h-6 w-6 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -396,6 +410,12 @@
                             </svg>
                           </i>
                         </a>
+                        <div class="tooltip" role="tooltip">
+                          Approve ticket
+                          <div class="tooltip-arrow"></div>
+                        </div>
+                      </div>
+
                       </td>
                     </tr>
                     <tr v-if="booking.showParticipants">
@@ -752,6 +772,8 @@
                       </td>
                       <td class="px-1 py-3 border-b border-gray-200 bg-white text-sm">
                         <!-- Action buttons -->
+
+                        <div class="relative inline-block mr-1">
                         <a href="#" class="text-gray-400 hover:text-gray-100 ml-2" style="display: inline-block" @click.prevent="toggleTableparticipants(booking)">
                           <i class="material-icons-round text-base">
                             <svg class="h-6 w-6 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -760,6 +782,14 @@
                             </svg>
                           </i>
                         </a>
+                        <div class="tooltip" role="tooltip">
+                          View participants
+                          <div class="tooltip-arrow"></div>
+                        </div>
+                      </div>
+
+
+                      <div class="relative inline-block mr-1">
                         <a @click="showApproveModal(booking._id)" class="text-gray-400 hover:text-gray-100 ml-2" style="display: inline-block">
                           <i class="material-icons-round text-base">
                             <svg class="h-7 w-7 text-fuchsia-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -768,7 +798,13 @@
                             </svg>
                           </i>
                         </a>
+                        <div class="tooltip" role="tooltip">
+                          Approve Ticket
+                          <div class="tooltip-arrow"></div>
+                        </div>
+                      </div>
 
+                      <div class="relative inline-block mr-1">
                         <a @click.stop="openRejectModal(booking)" class="text-gray-400 hover:text-gray-100 ml-2" style="display: inline-block">
                           <i class="material-icons-round text-base">
                               <svg class="h-7 w-7 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -776,6 +812,12 @@
                               </svg>
                           </i>
                         </a>
+                        <div class="tooltip" role="tooltip">
+                          Reject Ticket
+                          <div class="tooltip-arrow"></div>
+                        </div>
+                      </div>
+
                       </td>
                     </tr>
                     <tr v-if="booking.showParticipants">
@@ -1974,4 +2016,40 @@ export default {
   justify-content: space-around;
   }
 }
+
+
+
+.tooltip {
+  visibility: hidden;
+  position: absolute;
+  z-index: 9999;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.5rem;
+  background-color: #111827;
+  color: white;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 10ms linear, visibility 0ms;
+  pointer-events: none;
+}
+
+.relative:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltip-arrow {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: #111827 transparent transparent transparent;
+}
+
 </style>

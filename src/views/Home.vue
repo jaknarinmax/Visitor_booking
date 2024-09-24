@@ -180,11 +180,11 @@ export default {
 
 
 <template>
-  <section class="pt-10 sm:pt-14" style="   padding: 1%;">
-    <div style=" border: 2px solid rgba(128, 128, 128, 0.5); padding: 30px; margin: 10 auto; margin-top: 20px; background-color: rgba(173, 216, 230, 0.3); border-radius: 10px; ">
+  <section class="pt-1 sm:pt-14" style="   padding: 1%;">
+    <div style=" border: 2px solid rgba(128, 128, 128, 0.5); padding: 20px; margin: 10 auto;  background-color: rgba(173, 216, 230, 0.3); border-radius: 10px; ">
       <div>
         <div style="display: flex; align-items: center;">
-          <img src="@/assets/images/img10.png" alt="search image" style="width: 60px; height: auto; margin-left: 10px; margin-top: -40px;">
+          <img src="@/assets/images/img10.png" alt="search image" style="width: 60px; height: auto; margin-left: 10px; margin-top: -10px;">
           <div style="display: flex; flex-direction: column">
             <h2 style="margin: 20px; font-size: 28px; margin-left: 20px; margin-top: -10px; font-weight: bold; color: #e64a19;"> Visitor booking</h2>
           </div>
@@ -221,10 +221,10 @@ export default {
           <div v-if="showModalDepartment" class="fixed inset-0 bg-transparent backdrop-blur-md z-50 flex justify-center items-center">
             <div class="relative cursor-pointer dark:text-white">
               <span class="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-slate-500 rounded-lg dark:bg-gray-200"></span>
-              <div class="relative p-4 bg-white dark:bg-gray-800 border-2 border-slate-500 dark:border-gray-300 rounded-lg hover:scale-105 transition duration-500">
+              <div class="modal-content relative p-4 bg-white dark:bg-gray-800 border-2 border-slate-500 dark:border-gray-300 rounded-lg hover:scale-105 transition duration-500">
                 <h2 style="margin: 5px; font-size: 26px;  font-weight: bold; color: #070606; margin-top: -15px;"> 
-                  Select Sales Department</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {{ $t('home.Selectdepartment') }}</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
                   <button @click="closeshowModalDepartment" class="absolute top-0 right-0 mt-2 mr-2 bg-red-400 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-red-600 input-on-hover1 ease-in-out duration-100 transform hover:-translate-y-0.5 hover:-translate-x-0.5">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                       <path fill-rule="evenodd" d="M6.293 6.293a1 1 0 011.414 0L10 8.586l2.293-2.293a1 1 0 111.414 1.414L11.414 10l2.293 2.293a1 1 0 01-1.414 1.414L10 11.414l-2.293 2.293a1 1 0 01-1.414-1.414L8.586 10 6.293 7.707a1 1 0 010-1.414z"
@@ -246,7 +246,7 @@ export default {
                             <div class="flex flex-row text-sm">
                               <span class="mr-1"></span>
                               <p class="flex items-center text-gray-500">
-                                <span class="font-semibold mr-1 uppercase" style="font-size: 12px;">Department Name:</span>
+                                <span class="font-semibold mr-1 uppercase" style="font-size: 12px;">{{ $t('home.departmentname') }}:</span>
                                 <span style="font-size: 15px; font-weight: bold; color: brown;">{{ department }}</span>
                               </p>
                             </div>
@@ -254,19 +254,19 @@ export default {
                               <span class="mr-1"></span>
                                 <p class="flex items-center text-gray-500">
                                 <span class="font-semibold mr-1 uppercase" style="font-size: 12px;">
-                                  Number of Sales in the Department:</span>
+                                  {{ $t('home.numberofSales') }}:</span>
                                   <span style="font-size: 15px; font-weight: bold; color: brown;">{{ departmentMemberCounts[department] }}</span>                              
                                 </p>
                             </div>
                           </div>
                           <div class="flex w-full relative bottom-0">
-                            <div class="grid grid-cols-3 border-t divide-x text-[#0ed3cf] bg-gray-50 dark:bg-transparent py-1">
+                            <div class="grid  border-t divide-x text-[#0ed3cf] bg-gray-50 dark:bg-transparent py-1">
                               <div></div>
                               <a class="cursor-pointer uppercase text-xs flex flex-row items-center justify-center font-semibold hover:text-[#0c9d92] transition-colors duration-300 ease-in-out">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-6 7 2 2 4-4m-5-9v4h4V3h-4Z"/>
                                 </svg>
-                                Select Sales
+                                {{ $t('home.selectd') }}
                               </a>
                             </div>
                           </div>
@@ -284,8 +284,8 @@ export default {
             <div class="relative flex flex-col items-start justify-center px-6 py-8 w-full md:w-1/3 bg-white rounded-lg shadow-lg hover:shadow-2xl shadow-gray-500/50 ring-2 ring-gray-200 ring-opacity-50">
               <div class="w-full text-center text-xl font-semibold text-gray-800 mb-2">
                 <div style="border: 4px solid #D3D3D3; border-left-color: #2F4F4F; border-right-color: #2F4F4F; padding: 4px 8px; border-radius: 4px; display: inline-block;">
-                  {{ selectedDepartment }} Members
-                </div>           
+                  {{ $t('home.members') }} {{ selectedDepartment }}
+                </div> 
               </div>
               <button @click="closeshowModalsales" class="absolute top-0 right-0 mt-2 mr-2 bg-red-400 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-red-600 input-on-hover1 ease-in-out duration-100 transform hover:-translate-y-0.5 hover:-translate-x-0.5">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -320,7 +320,7 @@ export default {
           <div v-if="showModalSalesinformation1" class="fixed inset-0 bg-transparent backdrop-blur-md z-50 flex justify-center items-center">
             <div class="relative flex w-full max-w-md flex-col rounded-2xl bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-border text-gray-700 shadow-2xl" style="box-shadow: 0 10px 20px rgba(0,0,3,0.5), 0 6px 6px rgba(0,0,0,5.15); border: 2px solid #e0e0e0;">  
               <div class="relative mx-4 -mt-20 h-56 ">
-                <h2 style="font-size: 20px; font-weight: bold; margin: 0; color: #000000; margin-top: -30px;">Sales Information</h2>
+                <h2 style="font-size: 20px; font-weight: bold; margin: 0; color: #000000; margin-top: -30px;">{{ $t('home.information') }}</h2>
 
                 <div class="bg-white rounded-xl shadow-lg py-14 px-4 max-w-sm mx-auto" :style="{ backgroundImage: `url(${imagePath})`, backgroundSize: 'cover', backgroundPosition: 'center' }">
                   <div class="text-black flex flex-col justify-between h-full">
@@ -667,4 +667,11 @@ ul li::before {
 .black_border {
   box-shadow: 4px 4px 1px rgb(0, 0, 0);
 }
+
+.modal-content {
+  max-height: 90vh; /* ความสูงสูงสุด 90% ของความสูงหน้าจอ */
+  overflow-y: auto; /* เพิ่ม scrollbar ในแนวตั้งเมื่อจำเป็น */
+  -webkit-overflow-scrolling: touch; /* ทำให้การเลื่อนบนอุปกรณ์ iOS นุ่มนวลขึ้น */
+}
+
 </style>

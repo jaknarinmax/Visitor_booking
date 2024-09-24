@@ -234,7 +234,7 @@ export default {
           // Redirect based on the role returned from the backend
             switch (response.data.role) {
             case 'admin':
-                window.location.href = '/adminboard';
+                window.location.href = '/Adminboard';
                 break;
             case 'adminsales':
                 window.location.href = '/Adminsales';
